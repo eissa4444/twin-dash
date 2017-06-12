@@ -20,5 +20,6 @@ describe("map function", () => {
         let result = __.map(users, 'user')
         expect(result).toEqual(['barney', 'fred']);
     });
+    
 });
 
