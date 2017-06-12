@@ -20,6 +20,38 @@ describe("map function", () => {
         let result = __.map(users, 'user')
         expect(result).toEqual(['barney', 'fred']);
     });
-    
+
+
+});
+
+describe("filter function", () => {
+    let users = [
+        { 'user': 'barney', 'age': 36, 'active': true },
+        { 'user': 'fred', 'age': 40, 'active': false }
+    ];
+
+    it("Iterates over elements of collection, returning an array of all elements predicate returns truthy for",
+        function () {
+            let result = __.filter(users, function (o) { return !o.active; })
+            expect(result).toEqual([{ 'user': 'fred', 'age': 40, 'active': false }]);
+
+        });
+    it("Iterates over elements of collection, returning an array of all elements match predicate",
+        function () {
+            let result = __.filter(users, { 'age': 36, 'active': true })
+            expect(result).toEqual([{ 'user': 'barney', 'age': 36, 'active': true }]);
+        });
+    it("Iterates over elements of collection, returning an array of all elements match predicate",
+        function () {
+            let result = __.filter(users, ['active', false]);
+            expect(result).toEqual([{ 'user': 'fred', 'age': 40, 'active': false }]);
+        });
+    it("Iterates over elements of collection, returning an array of all elements which property's value is true",
+        function () {
+            let result = __.filter(users, 'active');
+            expect(result).toEqual([{ 'user': 'barney', 'age': 36, 'active': true }]);
+        });
+
+
 });
 
