@@ -190,6 +190,40 @@ class MyLib {
         })
         return output
     }
+    find<T>(collection: List<T> | Dictionary<T>, iteratee?: ListIterator<T, any> | any, fromIndex?: number): any {
+
+        let start: number = fromIndex != undefined && !isNaN(fromIndex) ? fromIndex : 0
+        if (this.isArray(collection)) {
+            collection = collection as Array<T>
+            if (this.isFunction(iteratee)) {
+                for (let index = start; index < collection.length; index++) {
+                    if (iteratee(collection[index], index, collection)) {
+                        return collection[index]
+                    }
+                }
+            } else if (this.isObject(iteratee)) {
+                for (let index = start; index < collection.length; index++) {
+                    if (this.hasMatches(collection[index], iteratee)) {
+                        return collection[index]
+                    }
+                }
+            } else if (this.isArray(iteratee)) {
+                for (let index = start; index < collection.length; index++) {
+                    if (collection[index][iteratee[0]] == iteratee[1]) {
+                        return collection[index]
+                    }
+                }
+            } else if (this.isString(iteratee)) {
+                for (let index = start; index < collection.length; index++) {
+                    if (Boolean(collection[index][iteratee])) {
+                        return collection[index]
+                    }
+                }
+            }
+
+        }
+        return undefined
+    }
 
 
     private hasMatches(obj: Object, iteratee: Object): Boolean {
