@@ -51,7 +51,33 @@ describe("filter function", () => {
             let result = __.filter(users, 'active');
             expect(result).toEqual([{ 'user': 'barney', 'age': 36, 'active': true }]);
         });
+});
 
+describe("every function", () => {
+    let users = [
+        { 'user': 'barney', 'age': 36, 'active': false },
+        { 'user': 'fred', 'age': 40, 'active': false }
+    ];
 
+    it("returns true if all elements of the collection pass the predicate check, else false",
+        function () {
+            let result = __.every([true,  1,  null,  'yes'], Boolean)
+            expect(result).toEqual(false);
+        });
+    it("returns true if all the element of the collection match the iteratee",
+        function () {
+            let result = __.every(users, { 'user': 'barney', 'active': false })
+            expect(result).toEqual(false);
+        });
+    it("returns true if all the element of the collection match iteratee(matchesProperty)",
+        function () {
+            let result = __.every(users, ['active', false]);
+            expect(result).toEqual(true);
+        });
+    it("returns true if all the element of the collection match iteratee(property)",
+        function () {
+            let result = __.every(users, 'active');
+            expect(result).toEqual(false);
+        });
 });
 
