@@ -1,0 +1,23 @@
+{
+  "name": "mylib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Muhamad Eissa<eissa3101652.me@gmail.com>",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.35",
+    "gulp": "^3.9.1",
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.6.3",
+    "karma": "^0.13.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-ie-launcher": "0.2.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-typescript-preprocessor": "^0.3.0",
+    "typescript": "^2.3.4"
+  }
+}
