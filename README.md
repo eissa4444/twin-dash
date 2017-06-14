@@ -2,6 +2,8 @@
 - ## [npm package](https://www.npmjs.com/package/twin-dash) 
 - ## [try it](https://runkit.com/npm/twin-dash)
 
+# The twin-dash library exported as Node.js modules.
+
 installing
 ```
 npm install twin-dash
