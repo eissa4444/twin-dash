@@ -12,8 +12,7 @@ example
 ```
 var twinDash = require("twin-dash")
 var __ =new twinDash.MyLib()
-
-
+```
 ### countBy
 ```
 __.countby([4, 8], x => x * x) 
