@@ -111,7 +111,7 @@ __.filter(friends, { 'height': 182, 'exsist': true });
 __.filter(friends, ['exsist', true]);
 // => [{ 'name': 'waleed','height': 140, 'exsist': true },{ 'name': 'fisal', 'height': 182,  'exsist': true }]
  
-_.filter(friends, 'active');
+__.filter(friends, 'exsist');
 // => // => [{ 'name': 'waleed','height': 140, 'exsist': true },{ 'name': 'fisal', 'height': 182,  'exsist': true }]
 ```
 
