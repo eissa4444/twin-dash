@@ -29,7 +29,7 @@ function devideByTwo(x) {
 __.map([4, 8], devideByTwo);
 // => [2, 4]
  
-_.map({ 'x': 10, 'y': 14 ,'z': 22}, devideByTwo);
+__.map({ 'x': 10, 'y': 14 ,'z': 22}, devideByTwo);
 // => [5,14,11] 
  
 var users = [
@@ -38,8 +38,80 @@ var users = [
   { 'user': 'Mustafa' }
 ];
  
-_.map(users, 'user');
+__.map(users, 'user');
 // => ['Ahmad', 'Khalid', 'Mustafa']
 ```
+### every
+```
+__.every([true, 1, null, 'yes'], Boolean);
+// => false
+ 
+var users = [
+  { 'user': 'Taha', 'age': 22, 'online': false },
+  { 'user': 'Ramy',   'age': 18, 'online': false }
+];
+ 
+__.every(users, { 'user': 'Taha', 'online': false });
+// => false
+ 
+__.every(users, ['online', false]);
+// => true
+ 
+_.every(users, 'online');
+// => false
+```
+### foreach
+```
+__.forEach(['a', 'b','c'], function(val) {
+  console.log(val);
+});
+// => Logs `a` then `b`. then 'c'
+ 
+_.forEach({ 'ahmad': 11, 'sayed': 23 }, function(val, key) {
+  console.log(key);
+});
+// => Logs 'ahmad' then 'sayed' 
+```
 
+### find
+```
+var friends = [
+  { 'name': 'waleed','height': 140, 'exsist': true },
+  { 'name': 'morad', 'height': 178, 'exsist': false },
+  { 'name': 'fisal', 'height': 182,  'exsist': true }
+];
+ 
+__.find(friends, function(o) { return o.height < 170; });
+// =>   { 'name': 'waleed','height': 140, 'exsist': true }
+ 
+__.find(friends, { 'height': 182, 'exsist': true });
+// =>   { 'name': 'fisal', 'height': 182,  'exsist': true }
+ 
+__.find(friends, ['exsist', false]);
+// =>   { 'name': 'morad', 'height': 178, 'exsist': false }
+ 
+__.find(friends, 'exsist');
+// => { 'name': 'waleed','height': 140, 'exsist': true }
+```
+
+### filter
+```
+var friends = [
+  { 'name': 'waleed','height': 140, 'exsist': true },
+  { 'name': 'morad', 'height': 178, 'exsist': false },
+  { 'name': 'fisal', 'height': 182,  'exsist': true }
+];
+
+__.filter(friends, function(o) { return !o.exsist; });
+// =>  [{ 'name': 'morad', 'height': 178, 'exsist': false }]
+ 
+__.filter(friends, { 'height': 182, 'exsist': true });
+// => [{ 'name': 'fisal', 'height': 182,  'exsist': true }]
+ 
+__.filter(friends, ['exsist', true]);
+// => [{ 'name': 'waleed','height': 140, 'exsist': true },{ 'name': 'fisal', 'height': 182,  'exsist': true }]
+ 
+_.filter(friends, 'active');
+// => // => [{ 'name': 'waleed','height': 140, 'exsist': true },{ 'name': 'fisal', 'height': 182,  'exsist': true }]
+```
 
