@@ -30,7 +30,7 @@ __.map([4, 8], devideByTwo);
 // => [2, 4]
  
 __.map({ 'x': 10, 'y': 14 ,'z': 22}, devideByTwo);
-// => [5,14,11] 
+// => [5,7,11] 
  
 var users = [
   { 'user': 'Ahmad' },
